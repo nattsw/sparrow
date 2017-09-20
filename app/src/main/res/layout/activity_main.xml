@@ -12,20 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Hello World!"/>
+        android:text="Hola amigo!"/>
 
     <Button
         android:id="@+id/resubscribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Re-subscribe"/>
-
-    <TextView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="no errors, yay"
-        android:textSize="12dp"/>
 
 </LinearLayout>

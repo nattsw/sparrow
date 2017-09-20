@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "io.natalietay.ninjabird"
+        applicationId "io.natalietay.sparrow"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
@@ -15,6 +15,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "endpoint"
+    productFlavors {
+        production {
+            dimension "endpoint"
+        }
+        espresso {
+            dimension "endpoint"
         }
     }
 }
@@ -36,8 +45,25 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
 
+    // Unit testing
     testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile 'org.assertj:assertj-core:2.8.0'
+
+    // Instrumentation testing
+    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:3.0.1', {
+        exclude module: 'support-annotations'
+    })
+    androidTestCompile('com.android.support.test:runner:1.0.1', {
+        exclude module: 'support-annotations'
+    })
+    androidTestCompile('com.android.support.test:rules:1.0.1', {
+        exclude module: 'support-annotations'
+    })
+
+    // Mock server
+    androidTestCompile 'com.squareup.okhttp3:mockwebserver:3.9.0'
 }
